@@ -26,4 +26,5 @@ int	main(int ac, char **av)
 		i++;
 	}
 	ft_putchar('\n');
+	return (0);
 }
