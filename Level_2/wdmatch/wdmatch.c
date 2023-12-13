@@ -24,11 +24,12 @@ int	main(int ac, char **av)
 		return (0);
 	}
 	i = 0;
-	j = -1;
-	while (av[2][++j] && av[1][i])
+	j = 0;
+	while (av[2][j] && av[1][i])
 	{
 		if (av[2][j] == av[1][i])
 			i++;
+		j++;
 	}
 	if (!av[1][i])
 		ft_putstr(av[1]);
