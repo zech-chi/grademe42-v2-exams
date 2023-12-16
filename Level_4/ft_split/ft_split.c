@@ -6,7 +6,7 @@
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 00:44:05 by zech-chi          #+#    #+#             */
-/*   Updated: 2023/12/16 01:25:12 by zech-chi         ###   ########.fr       */
+/*   Updated: 2023/12/16 01:29:36 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	**ft_split(char *str)
 {
 	char	**res;
 	int	r;
-	int c;
+	int	c;
 	int	left;
 	int	right;
 
