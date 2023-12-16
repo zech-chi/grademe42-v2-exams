@@ -1,42 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rot_13.c                                           :+:      :+:    :+:   */
+/*   expand_str.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zech-chi <zech-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/16 22:23:48 by zech-chi          #+#    #+#             */
-/*   Updated: 2023/12/16 22:23:49 by zech-chi         ###   ########.fr       */
+/*   Created: 2023/12/16 22:28:17 by zech-chi          #+#    #+#             */
+/*   Updated: 2023/12/16 22:36:29 by zech-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchar(char c)
+int	ft_is_space(char c)
 {
-	write(1, &c, 1);
+	return (c == ' ' || c == '\t');
 }
 
 int	main(int ac, char **av)
 {
 	int	i;
+	int	is_first_word;
 
 	if (ac != 2)
 	{
-		ft_putchar('\n');
+		write(1, "\n", 1);
 		return (0);
 	}
-	i = 0;
-	while (av[1][i])
+	i = -1;
+	is_first_word = 1;
+	while (av[1][++i])
 	{
-		if ('a' <= av[1][i] && av[1][i] <= 'z')
-			ft_putchar((av[1][i] - 'a' + 13) % 26 + 'a');
-		else if ('A' <= av[1][i] && av[1][i] <= 'Z')
-			ft_putchar((av[1][i] - 'A' + 13) % 26 + 'A');
-		else
-			ft_putchar(av[1][i]);
-		i++;
+		if (!ft_is_space(av[1][i]))
+		{
+			if (is_first_word)
+				is_first_word = 0;
+			else if (ft_is_space(av[1][i - 1]))
+				write(1, "   ", 3);
+			write(1, av[1] + i, 1);
+		}
 	}
-	ft_putchar('\n');
+	write(1, "\n", 1);
 	return (0);
 }
