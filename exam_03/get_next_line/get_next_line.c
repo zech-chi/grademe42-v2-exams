@@ -86,7 +86,7 @@ char	*get_next_line(int fd)
 	int				r = 0;
 	int				e = 0;
 
-	if (fd < 0 || BUFFER_SIZE < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	if (ft_has_newline(buffer, &line) == 1)
 		return (line);
